@@ -1,7 +1,10 @@
 #!/bin/bash
 
-echo "$(date)" >> log.txt 
+LOG=log.txt
+MSG="ran script again"
 
-git add log.txt
-git commit -m "ran script again"
+echo "$(date)" >> $LOG
+
+git add $LOG
+git commit -m $MSG
 git push origin master
