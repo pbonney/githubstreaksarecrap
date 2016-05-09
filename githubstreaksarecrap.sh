@@ -1,10 +1,17 @@
 #!/bin/bash
 
+N=${1:-3}
+
 LOG=log.txt
-MSG="ran script again"
+MSG="updated log again"
 
 echo "$(date)" >> $LOG
 
-git add $LOG
-git commit -m "$MSG"
+for (( i=1; i<=$N; i++ ))
+do
+    echo "$i. No one cares about your commit streak." >> $LOG
+    git add $LOG
+    git commit -m "$i $MSG"
+done
+
 git push origin master
